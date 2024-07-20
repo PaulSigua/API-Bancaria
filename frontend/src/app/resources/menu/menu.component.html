@@ -1,0 +1,13 @@
+<div>
+    <div class="main-container">
+        <div class="main-content">
+            <nav>
+                <ul class="menu">
+                    <li *ngFor="let p of pages">
+                        <a href="#" [routerLink]="'/' + p.path">{{p.link}}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

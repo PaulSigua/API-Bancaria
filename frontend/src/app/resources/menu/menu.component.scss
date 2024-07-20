@@ -1,0 +1,77 @@
+// Variables
+$primary-color: #FFD700; // Amarillo
+$secondary-color: #000000; // Negro
+$background-color: #f8f9fa;
+$text-color: #000000; // Negro
+$white-color: #ffffff;
+$nav-height: 60px;
+$border-radius: 8px;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Estilos
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    padding-top: $nav-height; // Para evitar que el contenido quede oculto detrás del nav
+
+    .main-content {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0; // Añadido para eliminar el margen a la izquierda
+    width: 100%;
+    height: $nav-height;
+    background-color: $primary-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        li {
+            margin: 0 15px;
+
+            a {
+                text-decoration: none;
+                color: $text-color;
+                padding: 10px 15px;
+                border-radius: $border-radius;
+                transition: background-color 0.3s ease, color 0.3s ease;
+
+                &:hover {
+                    background-color: darken($primary-color, 10%);
+                }
+
+                &[routerLinkActive] {
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
